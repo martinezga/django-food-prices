@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'foodprices/style.css' %}">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {#  #}
+    {% include "foodprices/nav_bar.html" %}
+
+    <h1>Comparador de precios</h1>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>Copyright 2021</footer>
+</body>
+</html>

@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food prices comparison application</title>
-</head>
-<body>
-    <h1>Comparador de precios</h1>
-    <p>Hello world desde un HTML!</p>
-</body>
-</html>
+{% extends "foodprices/base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+    <p>Fecha y hora actual: {{ now.time }}</p>
+    <p>Lista de endpoints disponibles</p>
+
+    <ul>
+        <li><a href="/polls">Polls</a></li>
+        {% if my_list %}
+            {% for item in my_list %}
+                <li>{{ item }}</li>
+            {% endfor %}
+            {% else %}
+                <p>Test. No hay elementos que mostrar</p>
+        {% endif %}
+    </ul>
+
+{% endblock %}

@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from foodprices.views import home_food_prices, calculate_age
+from foodprices.views import home_food_prices, calculate_age, about_view
 
 urlpatterns = [
+    path('about.html', about_view),
     path('', home_food_prices),
     path('age/<int:age>/<int:year>', calculate_age),
     path('polls/', include('polls.urls')),

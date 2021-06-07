@@ -1,24 +1,24 @@
 import datetime
 
 from django.http import HttpResponse
-from django.template import Template, Context
+from django.shortcuts import render
+
+
+def get_date():
+    return datetime.datetime.now()
 
 
 def home_food_prices(request):
-    name = 'Gaby'
-    external_index_doc = open('/code/templates/foodprices/index.html')
-    index_template = Template(external_index_doc.read())
-    external_index_doc.close()
+    my_list = []
+    now = get_date()
+    person = {"name": "Gaby!", "now": now, "my_list": my_list}
 
-    index_context = Context()
-    index_doc = index_template.render(index_context)
-
-    return HttpResponse(index_doc)
+    return render(request, 'foodprices/index.html', person)
 
 
-def get_date(request):
-    now = datetime.datetime.now()
-    return HttpResponse(now)
+def about_view(request):
+    now = get_date()
+    return render(request, 'foodprices/about.html', {"now": now})
 
 
 def calculate_age(request, age, year):
